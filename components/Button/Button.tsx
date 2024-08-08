@@ -1,12 +1,6 @@
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-
-type VariantTypes = "outlined" | "contained" | "text"
-
-interface ButtonProps extends React.ComponentPropsWithRef<typeof TouchableOpacity> {
-    label: string,
-    variant: VariantTypes,
-}
+import { ButtonProps, VariantTypes } from "./Button.model";
 
 const variant = (variants: any, key: VariantTypes) => {
     return variants[key];
@@ -44,6 +38,7 @@ const TextBase = styled.Text`
 function Button({
     label,
     variant = 'text',
+    color = 'primary',
     activeOpacity = 0.7,
     ...props
 }: ButtonProps) {
