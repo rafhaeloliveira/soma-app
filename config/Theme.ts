@@ -1,3 +1,12 @@
+import { ColorTypes } from "@/models/colors.model";
+
+type ThemeColor = {
+    [key in ColorTypes]?: {
+        main: string;
+        text: string;
+    };
+};
+
 const lightTheme = {
     primary: {
         main: "#17181A",
@@ -28,6 +37,6 @@ const darkTheme = {
     },
 }
 
-const theme = lightTheme;
+const theme: ThemeColor = lightTheme;
 
 export { theme };

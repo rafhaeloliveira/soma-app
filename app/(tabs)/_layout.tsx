@@ -4,6 +4,8 @@ import React from 'react';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { Header } from '@/components/Header';
+import { Feather } from '@expo/vector-icons';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -12,24 +14,36 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
       }}>
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
           title: 'Home',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
           ),
+          header: () => <Header fixed/>
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="[id]/index"
         options={{
+          href: null,
           title: 'Explore',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
           ),
+          header: () => <Header fixed/>
+        }}
+      />
+      <Tabs.Screen
+        name="bag"
+        options={{
+          title: 'Sacola',
+          tabBarIcon: ({ color, focused }) => (
+            <Feather name="shopping-bag" size={24} color={color} />
+          ),
+          header: () => <Header darkColor />
         }}
       />
     </Tabs>

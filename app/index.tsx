@@ -1,17 +1,8 @@
 import { Button } from "@/components/Button";
-import { Text, View } from "react-native";
+import { Container } from "@/components/Container";
+import { router } from "expo-router";
+import { View } from "react-native";
 import styled from "styled-components/native";
-
-const Container = styled(View)`
-    widht: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: red;
-    position: relative;
-`
 
 const BackgroundImage = styled.Image`
     width: 100%;
@@ -21,13 +12,22 @@ const BackgroundImage = styled.Image`
 `;
 
 export default function HomeScreen() {
+    const handleOnClick = () => {
+        router.push("/home");
+    }
+
     return (
-        <Container>
+        <Container 
+            fullWidth
+            fullHeight
+            direction="column"
+            alignItems="center"
+            justifyContent="flex-end"
+        >
             <BackgroundImage source={require("@/assets/images/bg-home.jpg")} />
-            <Text>Teste 123</Text>
-            <Button label="Contained" variant="contained" />
-            <Button label="Outlined" variant="outlined" />
-            <Button label="Text" variant="text" />
+            <View style={{ width: "100%", padding: 20 }}>
+                <Button label="Acessar" variant="contained" width="100%" color="secondary" activeOpacity={0.8} onPress={handleOnClick}/>
+            </View>
         </Container>
     )
 }
