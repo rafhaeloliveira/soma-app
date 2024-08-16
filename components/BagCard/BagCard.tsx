@@ -3,6 +3,7 @@ import { Container } from "../Container"
 import styled from "styled-components/native"
 import { formatToCurrency } from "@/utils/formatToCurrency"
 import { MinMaxInput } from "../MinMaxInput"
+import { Button } from "../Button"
 
 type Sizes = "P" | "M" | "G" | "GG";
 
@@ -11,7 +12,10 @@ interface Props {
     productId: string
     price: number
     size: Sizes
-    onQuantityChange?: (val: string) => void
+    imageUrl: string
+    quantity: number
+    handleRemove?: () => void
+    onQuantityChange: (val: number) => void
 }
 
 const ImageBagCard = styled.Image`
@@ -43,12 +47,16 @@ export const BagCard = ({
     title,
     productId,
     price,
+    imageUrl,
+    handleRemove,
+    onQuantityChange,
+    quantity,
     size
 }: Props) => {
     return (
         <Container fullWidth direction="row">
             <View>
-                <ImageBagCard source={{ uri: "https://lojafarm.vteximg.com.br/arquivos/ids/3279159-640-960/328440_07071_1-REGATA-QUADRADA-ESTAMPADA-FARM-RIO.jpg?v=638416136031500000"}} />
+                <ImageBagCard source={{ uri: imageUrl }} />
             </View>
             <View style={{ paddingLeft: 10 }}>
                 <Title>{title}</Title>
@@ -56,8 +64,11 @@ export const BagCard = ({
                 <SizeLabel>{size}</SizeLabel>
                 <Container style={{ marginTop: "auto" }} direction="row" justifyContent="space-between">
                     <Price>{formatToCurrency(price)}</Price>
-                    <MinMaxInput />
+                    <MinMaxInput quantity={quantity} handleChangeSize={onQuantityChange} />
                 </Container>
+                <View>
+                    <Button label="Remover" variant="contained" color="primary" size="small" onPress={handleRemove} />
+                </View>
             </View>
         </Container>
     )

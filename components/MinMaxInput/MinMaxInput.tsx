@@ -1,4 +1,4 @@
-import { Text } from "react-native"
+import { Text, TouchableOpacity } from "react-native"
 import { Container } from "../Container"
 import styled from "styled-components/native"
 import { Feather } from "@expo/vector-icons";
@@ -8,20 +8,16 @@ const QuantityText = styled.Text`
     padding: 5px 10px;
 `;
 
-const ActionButton = styled.TouchableOpacity`
-
-`;
-
-export const MinMaxInput = () => {
+export const MinMaxInput = ({ quantity, handleChangeSize }: { quantity: number, handleChangeSize: (val: number) => void }) => {
     return (
         <Container style={{ marginLeft: "20%" }} direction="row" alignItems="center">
-            <ActionButton>
+            <TouchableOpacity onPress={() => handleChangeSize(quantity - 1)}>
                 <Feather name="minus-circle" size={24} color="black" />
-            </ActionButton>
-            <QuantityText>1</QuantityText>
-            <ActionButton>
+            </TouchableOpacity>
+            <QuantityText>{quantity}</QuantityText>
+            <TouchableOpacity onPress={() => handleChangeSize(quantity + 1)}>
                 <Feather name="plus-circle" size={24} color="black" />
-            </ActionButton>
+            </TouchableOpacity>
         </Container>
     )
 }

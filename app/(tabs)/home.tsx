@@ -2,13 +2,35 @@ import { Container } from '@/components/Container';
 import { Grid } from '@/components/Grid';
 import { HighlightCard } from '@/components/HighlightCard';
 import { ProductCard } from '@/components/ProductCard';
+import { useLoading } from '@/config/context/LoadingContext';
+import { getAllProducts } from '@/redux/actions/product.actions';
+import { useEffect } from 'react';
 import { ScrollView } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
 const mockup = {
   url: "https://lojafarm.vteximg.com.br/arquivos/ids/3279159-640-960/328440_07071_1-REGATA-QUADRADA-ESTAMPADA-FARM-RIO.jpg?v=638416136031500000"
 }
 
 export default function HomeScreen() {
+  const dispatch = useDispatch();
+
+  const { loading, products, error } = useSelector((state) => state.products);
+
+  const { showLoading, hideLoading } = useLoading()
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (loading) {
+      showLoading();
+    } else {
+      hideLoading();
+    }
+  }, [loading]);
+
   return (
     <Container fullWidth fullHeight>
       <ScrollView>
@@ -19,12 +41,15 @@ export default function HomeScreen() {
         />
 
         <Grid>
-          <ProductCard title="Roupa 1" price={666} productId={'1'}  />
-          <ProductCard title="Roupa 2" price={666} productId={'2'} />
-          <ProductCard title="Roupa 3" price={666} productId={'3'} />
-          <ProductCard title="Roupa 4" price={666} productId={'4'} />
-          <ProductCard title="Roupa 5" price={666} productId={'5'} />
-          <ProductCard title="Roupa 6" price={666} productId={'6'} /> 
+          {products.map(item => (
+            <ProductCard
+              key={`product-${item.id}`}
+              title={item.title}
+              price={item.price}
+              productId={item.id}
+              imageUrl={item.image}
+            />
+          ))}
         </Grid>
       </ScrollView>
     </Container>

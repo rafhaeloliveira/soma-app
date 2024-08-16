@@ -1,9 +1,12 @@
 import { ScrollView, Text, View } from "react-native";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { Container } from "@/components/Container";
 import { HighlightCard } from "@/components/HighlightCard";
 import { Button } from "@/components/Button";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToBag } from "@/redux/actions/bag.actions";
+import { useLoading } from "@/config/context/LoadingContext";
 
 type Sizes = "P" | "M" | "G" | "GG";
 
@@ -16,19 +19,47 @@ const sizeList: {id: Sizes, label: string, available: boolean}[] = [
 
 export default function ProductPage() {
     const { id } = useLocalSearchParams();
+    const dispatch = useDispatch();
+
+    const { products } = useSelector((state) => state.products);
+    const { loading } = useSelector((state) => state.bag);
+
+    const { showLoading, hideLoading } = useLoading()
+
+    const product = products.find(item => item.id === id);
 
     const [selectedSize, setSize] = useState<Sizes>("P");
 
-    const handleSelectSize = (size: Sizes) => {
+    useEffect(() => {
+        if(loading) {
+            showLoading();
+        } else {
+            hideLoading();
+        }
+    }, [loading])
+
+    const handleSelectSize = (size: Sizes) => {      
         setSize(size);
+    }
+
+    const handleBuy = () => {
+        const payload = {
+            ...product,
+            size: selectedSize,
+            quantity: 1
+        }
+
+        dispatch(addToBag(payload));
+
+        router.push("/bag");
     }
 
     return (
         <Container fullWidth fullHeight>
             <ScrollView>
                 <HighlightCard
-                    imageUri="https://lojafarm.vteximg.com.br/arquivos/ids/3279159-640-960/328440_07071_1-REGATA-QUADRADA-ESTAMPADA-FARM-RIO.jpg?v=638416136031500000"
-                    title="Roupa tal"
+                    imageUri={product.image}
+                    title={product.title}
                 />
 
                 <View style={{ width: "80%", padding: 10 }}>
@@ -53,7 +84,7 @@ export default function ProductPage() {
                 </View>
 
                 <View style={{ padding: 10 }}>
-                    <Button label="Comprar" variant="contained" color="primary" />
+                    <Button label="Comprar" variant="contained" color="primary" onPress={handleBuy} />
                 </View>
             </ScrollView>
         </Container>

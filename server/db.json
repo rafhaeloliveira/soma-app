@@ -1,0 +1,65 @@
+{
+    "products": [
+        {
+            "id": "1",
+            "image": "https://lojafarm.vteximg.com.br/arquivos/ids/3369059-500-750/331199_48234_2-VESTIDO-CURTO-ESTAMPADO-PUGLIA.jpg?v=638520988133070000",
+            "title": "Vestido curto estampa",
+            "price": 44900
+        },
+        { 
+            "id": "2",
+            "image": "https://lojafarm.vteximg.com.br/arquivos/ids/3370361-500-750/332073_48234_2-VESTIDO-CURTO-ESTAMPADO-PUGLIA.jpg?v=638521000823630000",
+            "title": "Vestido cropped estampa",
+            "price": 34900
+        },
+        { 
+            "id": "3",
+            "image": "https://lojafarm.vteximg.com.br/arquivos/ids/3410344-500-750/329494_48234_2-VESTIDO-CROPPED-ESTAMPADO-PUGLIA.jpg?v=638588304119570000",
+            "title": "Vestido curto estampa",
+            "price": 79800
+        },
+        { 
+            "id": "4",
+            "image": "https://lojafarm.vteximg.com.br/arquivos/ids/3388425-500-750/329846_48234_2-VESTIDO-LONGO-ESTAMPADO-PUGLIA.jpg?v=638552082555600000",
+            "title": "Vestido curto estampa",
+            "price": 44900
+        },
+        { 
+            "id": "5",
+            "image": "https://lojafarm.vteximg.com.br/arquivos/ids/3372361-500-750/329510_48234_2-REGATA-LENCO-ESTAMPADA-PUGLIA.jpg?v=638521616122470000",
+            "title": "Regata lenço estampa",
+            "price": 22900
+        },
+        { 
+            "id": "6",
+            "image": "https://lojafarm.vteximg.com.br/arquivos/ids/3369064-500-750/331200_48234_2-SAIA-GODE-ESTAMPADA-PUGLIA.jpg?v=638520988195430000",
+            "title": "Saia godê estampa",
+            "price": 37900
+        },
+        { 
+            "id": "7",
+            "image": "https://lojafarm.vteximg.com.br/arquivos/ids/3370437-500-750/332700_48234_2-BATA-ESTAMPADA-PUGLIA.jpg?v=638521001502030000",
+            "title": "Bata estampada puglia",
+            "price": 37900
+        },
+        { 
+            "id": "8",
+            "image": "https://lojafarm.vteximg.com.br/arquivos/ids/3364562-500-750/334798_48234_2-SAIA-MIDI-ESTAMPADA-PUGLIA.jpg?v=638520939802030000",
+            "title": "Saia midi estampa",
+            "price": 24900
+        },
+        { 
+            "id": "9",
+            "image": "https://lojafarm.vteximg.com.br/arquivos/ids/3398032-500-750/326466_0024_2-VESTIDO-PATCH-RENDA-FLORAL-VALENTINA.jpg?v=638567523360800000",
+            "title": "Vestido patch renda",
+            "price": 89800
+        },
+        { 
+            "id": "10",
+            "image": "https://lojafarm.vteximg.com.br/arquivos/ids/3393061-500-750/326465_0024_2-CALCA-RENDA-FLORAL-VALENTINA.jpg?v=638560467460430000",
+            "title": "Calça renda floral",
+            "price": 69800
+        }
+
+    ]
+  }

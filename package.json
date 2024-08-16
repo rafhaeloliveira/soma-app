@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
+    "server": "npx json-server server/db.json",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -28,6 +29,7 @@
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.7",
     "expo-web-browser": "~13.0.3",
+    "json-server": "^1.0.0-beta.1",
     "lodash": "^4.17.21",
     "react": "18.2.0",
     "react-dom": "18.2.0",

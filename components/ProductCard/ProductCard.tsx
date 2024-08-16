@@ -11,6 +11,7 @@ interface Props {
     price?: number
     callToAction?: string
     productId: string
+    imageUrl: string
 }
 
 const ViewBase = styled.View`
@@ -23,6 +24,7 @@ const ProductImage = styled.Image`
 `
 
 const Title = styled.Text`
+    width: 80px;
     font-size: 16px;
 `
 
@@ -33,7 +35,8 @@ const Price = styled.Text`
 export const ProductCard = ({
     title,
     price,
-    productId
+    productId,
+    imageUrl
 }: Props) => {
     const handleBuy = () => {
         return (
@@ -43,7 +46,7 @@ export const ProductCard = ({
 
     return (
         <ViewBase>
-            <ProductImage source={{ uri: "https://lojafarm.vteximg.com.br/arquivos/ids/3364936/327266_48263_2-VESTIDO-CURTO-ESTAMPADO-RENDEIRA.jpg?v=638520948994370000" }}/>
+            <ProductImage source={{ uri: imageUrl }}/>
             <Container fullWidth direction="row" alignItems="center" justifyContent="space-between">
                 <View style={{ marginTop: 10 }}>
                     <Title>{title}</Title>

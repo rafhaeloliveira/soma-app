@@ -6,6 +6,8 @@ import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { Header } from '@/components/Header';
 import { Feather } from '@expo/vector-icons';
+import { Provider } from 'react-redux';
+import store from '@/redux/store';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
