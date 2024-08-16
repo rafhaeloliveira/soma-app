@@ -1,7 +1,6 @@
 import { Container } from "@/components/Container";
 import { createContext, ReactElement, useContext, useState } from "react"
 import { ActivityIndicator, Modal } from "react-native";
-import styled from "styled-components/native";
 import { theme } from "../Theme";
 
 interface Props {

@@ -5,7 +5,7 @@ import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { Header } from '@/components/Header';
-import { Feather } from '@expo/vector-icons';
+import { Feather, MaterialIcons } from '@expo/vector-icons';
 import { Provider } from 'react-redux';
 import store from '@/redux/store';
 
@@ -41,9 +41,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="bag"
         options={{
-          title: 'Sacola',
+          title: 'Mochila',
           tabBarIcon: ({ color, focused }) => (
-            <Feather name="shopping-bag" size={24} color={color} />
+            <MaterialIcons name="backpack" size={24} color={color} />
           ),
           header: () => <Header darkColor />
         }}

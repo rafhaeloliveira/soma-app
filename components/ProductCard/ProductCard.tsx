@@ -1,6 +1,6 @@
 import { calcWidth } from "@/utils/calcWidth"
 import { formatToCurrency } from "@/utils/formatToCurrency"
-import { Text, View } from "react-native"
+import { View } from "react-native"
 import styled from "styled-components/native"
 import { Button } from "../Button"
 import { Container } from "../Container"

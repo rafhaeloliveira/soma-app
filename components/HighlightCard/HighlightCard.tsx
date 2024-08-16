@@ -1,7 +1,5 @@
-import { Dimensions } from "react-native"
 import styled from "styled-components/native"
 import { Container } from "../Container";
-import { ReactElement } from "react";
 import { Entypo } from "@expo/vector-icons";
 import { calcScreenSize } from "@/utils/calcScreenSize";
 
