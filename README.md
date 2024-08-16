@@ -1,3 +1,31 @@
+# Como executar o projeto
+
+1. Requisitos
+
+   - Android Studio ou Dispositivo conectado e configurado na porta USB;
+   - Rodar o server com Json-Server junto com o projeto Expo;
+   - Acesso a internet;
+   - Alterar .env e colocar o IP local do computador "exemplo: 192.168.1.5:3000"
+
+2. Comandos
+
+   Rodar os 2 comandos abaixo ao mesmo tempo;
+
+   - Com Yarn;
+
+   ```bash
+      yarn start
+      yarn server
+   ```
+
+   - Com npm
+
+   ```bash
+      npm start
+      npm run server
+   ```
+
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).

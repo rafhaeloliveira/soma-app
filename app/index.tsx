@@ -26,7 +26,7 @@ export default function HomeScreen() {
         >
             <BackgroundImage source={require("@/assets/images/bg-home.jpg")} />
             <View style={{ width: "100%", padding: 20 }}>
-                <Button label="Acessar" variant="contained" width="100%" color="secondary" activeOpacity={0.8} onPress={handleOnClick}/>
+                <Button label={`Acessar`}  variant="contained" width="100%" color="secondary" activeOpacity={0.8} onPress={handleOnClick}/>
             </View>
         </Container>
     )

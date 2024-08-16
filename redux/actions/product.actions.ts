@@ -3,7 +3,7 @@ export const getAllProducts = () => {
         dispatch({ type: 'ON_PRODUCTS_REQUEST' });
 
         try {
-            const response = await fetch(`http://192.168.1.8:3000/products`)
+            const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/products`)
 
             const data = await response.json();
 
